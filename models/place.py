@@ -1,27 +1,14 @@
 #!/usr/bin/python3
-"""Contains the Place model"""
-from models.base_model import BaseModel
+
+"""Module amenity
+Contains class Place that inherits from BaseModel"""
+from models import base_model
 
 
-class Place(BaseModel):
-    """
-    Implements the Place model
-
-    Args:
-        city_id (str): The City id.
-        user_id (str): The User id.
-        name (str): The name of the place.
-        description (str): The description of the place.
-        number_rooms (int): The number of rooms of the place.
-        number_bathrooms (int): The number of bathrooms of the place.
-        max_guest (int): The maximum number of guests of the place.
-        price_by_night (int): The price by night of the place.
-        latitude (float): The latitude of the place.
-        longitude (float): The longitude of the place.
-        amenity_ids (list): A list of Amenity ids.
-    """
+class Place(base_model.BaseModel):
+    """Defines a place for rent"""
     city_id = ""
-    user_id = ""
+    state_id = ""
     name = ""
     description = ""
     number_rooms = 0
@@ -31,3 +18,7 @@ class Place(BaseModel):
     latitude = 0.0
     longitude = 0.0
     amenity_ids = []
+
+    def __init__(self, *args, **kwargs):
+        """Initializes just like it's parent class BaseModel does"""
+        super().__init__(*args, **kwargs)
